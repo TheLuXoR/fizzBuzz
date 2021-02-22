@@ -10,14 +10,14 @@ public class FizzBuzzTest {
     @Test
     public void returnsZeroOnBegin(){
         FizzBuzz fizzBuzz = new FizzBuzz();
-        result = fizzBuzz.current();
+        String result = fizzBuzz.current();
         Assertions.assertEquals("0", result);
     }
 
     @Test
     public void incrementNumberWhenNextIsCalled(){
         FizzBuzz fizzBuzz = new FizzBuzz();
-        result = fizzBuzz.current();
+        String result = fizzBuzz.current();
         Assertions.assertEquals("0", result);
 
         fizzBuzz.next();
@@ -32,11 +32,11 @@ public class FizzBuzzTest {
     @Test
     public void returnsFizzIfDividableBy7(){
         FizzBuzz fizzBuzz = new FizzBuzz();
-        for(int i = 0; i < 8 ; ++i){
+        for(int i = 0; i < 7 ; ++i){
             fizzBuzz.next();
         }
 
-        result = fizzBuzz.current();
+        String result = fizzBuzz.current();
         Assertions.assertEquals("Fizz", result);
     }
 
@@ -44,13 +44,13 @@ public class FizzBuzzTest {
     public void returnsFizzForFirst10kNumbersIfDividableBy7(){
         FizzBuzz fizzBuzz = new FizzBuzz();
         for(int i = 0; i < 10000 ; ++i){
-            fizzBuzz.next();
             String result = fizzBuzz.current();
             if(i % 7 == 0 && i != 0) {
                 Assertions.assertEquals("Fizz", result);
             } else {
                 Assertions.assertEquals(String.valueOf(i), result);
             }
+            fizzBuzz.next();
         }
     }
 }
